@@ -4,18 +4,15 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.RemotePlayer;
 import net.minecraft.client.renderer.item.properties.numeric.RangeSelectItemModelProperty;
-import net.minecraft.world.entity.ItemOwner;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import org.jspecify.annotations.Nullable;
 
 public record EatProgress() implements RangeSelectItemModelProperty {
 
     public static final MapCodec<EatProgress> MAP_CODEC = MapCodec.unit(new EatProgress());
 
     @Override
-    public float get(ItemStack stack, @Nullable ClientLevel level, @Nullable ItemOwner owner, int seed) {
-        LivingEntity entity = owner == null ? null : owner.asLivingEntity();
+    public float get(ItemStack stack, ClientLevel level, LivingEntity entity, int seed) {
         if (entity == null || entity.getUseItem() != stack) {
             return 0.0F;
         }

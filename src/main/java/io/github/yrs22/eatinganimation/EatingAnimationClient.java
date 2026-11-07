@@ -2,7 +2,7 @@ package io.github.yrs22.eatinganimation;
 
 import io.github.yrs22.eatinganimation.mixin.RangeSelectItemModelPropertiesAccessor;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 
 public class EatingAnimationClient implements ClientModInitializer {
 
@@ -11,6 +11,6 @@ public class EatingAnimationClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         RangeSelectItemModelPropertiesAccessor.getIdMapper()
-                .put(Identifier.fromNamespaceAndPath(MOD_ID, "eat"), EatProgress.MAP_CODEC);
+                .put(ResourceLocation.fromNamespaceAndPath(MOD_ID, "eat"), EatProgress.MAP_CODEC);
     }
 }
