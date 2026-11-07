@@ -1,8 +1,8 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.17.13'
+    id 'fabric-loom' version '1.17.13'
 }
 
-version = "${project.mod_version}+${project.minecraft_version}"
+version = "${project.mod_version}+${project.version_label}"
 group = project.maven_group
 
 base {
@@ -11,24 +11,29 @@ base {
 
 dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 processResources {
     inputs.property "version", project.version
-    inputs.property "minecraft_version", project.minecraft_version
+    inputs.property "minecraft_dependency", project.minecraft_dependency
     inputs.property "loader_version", project.loader_version
     filesMatching("fabric.mod.json") {
         expand "version": project.version,
-               "minecraft_version": project.minecraft_version,
+               "minecraft_dependency": project.minecraft_dependency,
                "loader_version": project.loader_version
     }
 }
 
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion = JavaLanguageVersion.of(21)
     }
     withSourcesJar()
 }
