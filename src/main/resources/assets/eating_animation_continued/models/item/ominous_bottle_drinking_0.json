@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "eating_animation_continued:item/ominous_bottle_drinking_0"
+  }
+}

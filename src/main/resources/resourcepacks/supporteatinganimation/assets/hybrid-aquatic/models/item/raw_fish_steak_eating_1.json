@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "hybrid-aquatic:item/raw_fish_steak_eating_1"
-  }
-}

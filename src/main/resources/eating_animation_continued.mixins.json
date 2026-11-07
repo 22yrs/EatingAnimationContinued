@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.yrs22.eatinganimation.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": ["RangeSelectItemModelPropertiesAccessor"],
+  "injectors": { "defaultRequire": 1 }
+}

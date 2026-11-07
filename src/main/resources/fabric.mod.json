@@ -1,35 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "eatinganimationid",
+  "id": "eating_animation_continued",
   "version": "${version}",
-
-  "name": "Eating Animation",
-  "description": "This mod adds simple sprite animation when you eat or drink something.",
-  "authors": [
-    "theone_ss", "spusik_", "PinkGoosik", "DoctorNight1"
-  ],
+  "name": "Eating Animation Continued",
+  "description": "Unofficial continuation of Eating Animation by theone_ss. Adds a sprite animation when you eat or drink something.",
+  "authors": ["22yrs"],
+  "contributors": ["theone_ss (original Eating Animation)", "spusik_", "PinkGoosik", "DoctorNight1"],
   "contact": {
-    "homepage": "https://www.curseforge.com/members/theone_ss",
-    "sources": "https://github.com/Theoness1/EatingAnimation"
+    "sources": "https://github.com/22yrs/eating-animation-continued",
+    "issues": "https://github.com/22yrs/eating-animation-continued/issues"
   },
-
   "license": "MIT",
-  "icon": "assets/eatinganimationid/eatinganimationicon.png",
-
+  "icon": "assets/eating_animation_continued/icon.png",
   "environment": "client",
   "entrypoints": {
-
-    "client": ["ru.tpsd.eatinganimationmod.EatingAnimationClientMod", "ru.tpsd.eatinganimationmod.DrinkingAnimationClientMod"]
-
+    "client": ["io.github.yrs22.eatinganimation.EatingAnimationClient"]
   },
-  "mixins": [
-    "eatinganimation.mixins.json"
-  ],
-
+  "mixins": ["eating_animation_continued.mixins.json"],
   "depends": {
-    "fabricloader": "*",
+    "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
-    "minecraft": ">=1.21",
-    "java": ">=21"
+    "minecraft": "~${minecraft_version}",
+    "java": ">=25"
+  },
+  "breaks": {
+    "eatinganimationid": "*"
   }
 }
